@@ -1,5 +1,8 @@
-﻿namespace Buisness.Interfaces;
+﻿using Buisness.Models;
 
-internal interface IContactService
+namespace Buisness.Interfaces;
+
+public interface IContactService
 {
+    bool Create(ContactRegistrationForm form);
 }

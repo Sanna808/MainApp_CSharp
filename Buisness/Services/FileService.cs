@@ -1,10 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text.Json;
+using Buisness.Interfaces;
 using Buisness.Models;
 
 namespace Buisness.Services;
 
-public class FileService
+public class FileService : IFileService
 {
     private readonly string _directoryPath;
     private readonly string _filePath;
@@ -16,8 +18,6 @@ public class FileService
         _filePath = Path.Combine(_directoryPath, fileName);
         _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
     }
-
-
 
     public void SaveListToFile(List<Contact> list)
     {
@@ -51,7 +51,5 @@ public class FileService
             Debug.WriteLine(ex.Message);
             return [];
         }
-
     }
-
 }
